@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Ausentismo Laboral</title>
+  <link rel="stylesheet" href="miestilos.css" />
+</head>
+<body>
+  <h2>Calculadora de Ausentismo por Accidentes de Trabajo</h2>
+
+  <form id="ausentismoForm">
+    <label for="region">Región / Sucursal:</label>
+    <input type="text" id="region" placeholder="Ej: AMBA, Interior, CABA" required />
+
+    <label for="mes">Mes del período:</label>
+    <select id="mes" required>
+      <option value="">Seleccionar mes...</option>
+      <option>Enero</option>
+      <option>Febrero</option>
+      <option>Marzo</option>
+      <option>Abril</option>
+      <option>Mayo</option>
+      <option>Junio</option>
+      <option>Julio</option>
+      <option>Agosto</option>
+      <option>Septiembre</option>
+      <option>Octubre</option>
+      <option>Noviembre</option>
+      <option>Diciembre</option>
+    </select>
+
+    <label for="empleados">Número de empleados:</label>
+    <input type="number" id="empleados" required />
+
+    <label for="diasLaborables">Días laborables del período:</label>
+    <input type="number" id="diasLaborables" required />
+
+    <label for="diasPerdidos">Días perdidos por accidentes:</label>
+    <input type="number" id="diasPerdidos" required />
+
+   <button type="button" onclick="calcularAusentismo()">Calcular y Guardar</button>
+    <button type="button" class="btn-reset" onclick="resetearFormulario()">Resetear</button>
+    <button type="button" class="btn-export" onclick="exportarAExcel()">Descargar Excel rápido</button>
+    <button type="button" class="btn-export-adv" onclick="exportarExcelDetallado()">Descargar Excel detallado</button>
+    <button type="button" class="btn-export-json" onclick="exportarJSON()">Descargar JSON (Power BI)</button>
+    <button type="button" class="btn-delete" onclick="borrarRegistros()">Borrar registros</button>
+    <button type="button" class="btn-print" onclick="imprimirReporte()">Imprimir reporte</button>
+
+  </form>
+
+  <h3 id="resultado"></h3>
+
+  <h3>Registros guardados</h3>
+  <div class="tabla-wrapper">
+    <table id="tablaRegistros">
+      <thead>
+        <tr>
+          <th>Región</th>
+          <th>Mes</th>
+          <th>Empleados</th>
+          <th>D. laborables</th>
+          <th>D. perdidos</th>
+          <th>% Ausentismo</th>
+          <th>Fecha registro</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- filas generadas con JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Resumen por región y mes</h3>
+  <div class="tabla-wrapper">
+    <table id="tablaResumen">
+      <thead>
+        <tr>
+          <th>Región</th>
+          <th>Mes</th>
+          <th>Empleados (totales)</th>
+          <th>D. laborables (totales)</th>
+          <th>D. perdidos (totales)</th>
+          <th>% Ausentismo promedio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- resumen generado con JS -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal de confirmación -->
+  <div id="modalConfirm" class="modal">
+    <div class="modal-content">
+      <h4 id="modalTitle">Confirmar acción</h4>
+      <p id="modalMessage"></p>
+      <div class="modal-buttons">
+        <button type="button" id="modalCancel" class="btn-modal-cancel">Cancelar</button>
+        <button type="button" id="modalConfirmBtn" class="btn-modal-confirm">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="miscript.js"></script>
+</body>
+</html>

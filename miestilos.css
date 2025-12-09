@@ -1,0 +1,420 @@
+/* Fuente similar a la corporativa (Raleway) */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap");
+
+/* --------- Variables de color Correo Argentino --------- */
+:root {
+  --ca-azul: #003a70;
+  --ca-amarillo: #ffd200;
+  --ca-gris-fondo: #f4f4f4;
+  --ca-gris-borde: #d9d9d9;
+}
+
+/* --------- Estilos base --------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Raleway", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background-color: var(--ca-gris-fondo);
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+/* --------- Título con logo --------- */
+h2 {
+  position: relative;
+  color: var(--ca-azul);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: left;
+  padding: 16px 16px 16px 88px;
+  margin-bottom: 24px;
+  background: #ffffff;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  max-width: 520px;
+  border-bottom: 4px solid var(--ca-amarillo);
+}
+
+/* Si querés usar el logo, descomentá todo este bloque
+h2::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background-image: url("logo-correo-argentino.png"); 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+*/
+
+/* --------- Tarjeta del formulario --------- */
+#ausentismoForm {
+  width: 100%;
+  max-width: 520px;
+  background-color: #ffffff;
+  padding: 24px 20px 20px 20px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--ca-gris-borde);
+  border-top: none;
+}
+
+/* Etiquetas */
+#ausentismoForm label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ca-azul);
+  margin-bottom: 6px;
+}
+
+/* Inputs */
+#ausentismoForm input[type="number"],
+#ausentismoForm input[type="text"],
+#ausentismoForm select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--ca-gris-borde);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#ausentismoForm input:focus,
+#ausentismoForm select:focus {
+  outline: none;
+  border-color: var(--ca-azul);
+  box-shadow: 0 0 0 2px rgba(0, 58, 112, 0.18);
+}
+
+/* --------- Botones --------- */
+#ausentismoForm button {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Botón Calcular (todos menos reset y export) */
+#ausentismoForm button:not(.btn-reset):not(.btn-export) {
+  background: linear-gradient(135deg, #003a70, #002451);
+  color: #ffffff;
+}
+
+#ausentismoForm button:not(.btn-reset):not(.btn-export):hover {
+  box-shadow: 0 8px 16px rgba(0, 58, 112, 0.35);
+}
+
+/* Botón Resetear */
+.btn-reset {
+  background-color: #ffffff;
+  color: #003a70;
+  border: 2px solid #003a70;
+}
+
+.btn-reset:hover {
+  background-color: #003a70;
+  color: #ffffff;
+}
+
+/* Botón exportar (similar a los otros pero diferenciable) */
+.btn-export {
+  background-color: #ffd200;
+  color: #003a70;
+  border: 2px solid #ffd200;
+}
+
+.btn-export:hover {
+  filter: brightness(0.95);
+}
+
+/* Botón borrar registros (acción crítica) */
+.btn-delete {
+  background-color: #ffffff;
+  color: #b00020;
+  border: 2px solid #b00020;
+}
+
+.btn-delete:hover {
+  background-color: #b00020;
+  color: #ffffff;
+}
+
+/* En mobile que no quede muy junto */
+@media (max-width: 600px) {
+  .btn-delete {
+    margin-bottom: 8px;
+  }
+}
+
+
+/* Botón borrar registros (acción crítica general) */
+.btn-delete {
+  background-color: #ffffff;
+  color: #b00020;
+  border: 2px solid #b00020;
+}
+
+.btn-delete:hover {
+  background-color: #b00020;
+  color: #ffffff;
+}
+
+/* Botón de eliminar por fila */
+.btn-row-delete {
+  background-color: transparent;
+  color: #b00020;
+  border: 1px solid #b00020;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.btn-row-delete:hover {
+  background-color: #b00020;
+  color: #ffffff;
+}
+
+/* Botón imprimir */
+.btn-print {
+  background-color: #f4f4f4;
+  color: #003a70;
+  border: 2px solid #003a70;
+}
+
+.btn-print:hover {
+  background-color: #003a70;
+  color: #ffffff;
+}
+
+/* Modal genérico */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 420px;
+  width: 90%;
+  padding: 20px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+.modal-content h4 {
+  margin-bottom: 8px;
+  color: #003a70;
+}
+
+.modal-content p {
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-modal-cancel,
+.btn-modal-confirm {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.btn-modal-cancel {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.btn-modal-cancel:hover {
+  background-color: #e0e0e0;
+}
+
+.btn-modal-confirm {
+  background-color: #b00020;
+  color: #ffffff;
+}
+
+.btn-modal-confirm:hover {
+  filter: brightness(0.9);
+}
+
+/* Responsive para botones “peligrosos” en mobile */
+@media (max-width: 600px) {
+  .btn-delete,
+  .btn-print {
+    margin-bottom: 8px;
+  }
+}
+
+/* Estilo para impresión */
+@media print {
+  body {
+    background-color: #ffffff;
+    padding: 0;
+  }
+
+  /* Ocultar botones y modal al imprimir */
+  button,
+  .btn-reset,
+  .btn-export,
+  .btn-delete,
+  .btn-print,
+  .modal {
+    display: none !important;
+  }
+
+  /* Ajustar tablas en impresión */
+  .tabla-wrapper {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  #resultado {
+    box-shadow: none;
+  }
+}
+
+/* Export avanzado (detallado) */
+.btn-export-adv {
+  background-color: #003a70;
+  color: #ffd200;
+  border: 2px solid #003a70;
+}
+
+.btn-export-adv:hover {
+  background-color: #002451;
+  color: #ffd200;
+}
+
+/* Export JSON / BI */
+.btn-export-json {
+  background-color: #f4f4f4;
+  color: #003a70;
+  border: 2px dashed #003a70;
+}
+
+.btn-export-json:hover {
+  background-color: #003a70;
+  color: #ffffff;
+}
+
+/* Un poco de aire entre tantos botones en mobile */
+@media (max-width: 600px) {
+  .btn-export-adv,
+  .btn-export-json {
+    margin-bottom: 8px;
+  }
+}
+
+
+
+
+
+/* --------- Resultado --------- */
+#resultado {
+  width: 100%;
+  max-width: 520px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background-color: var(--ca-azul);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.16);
+}
+
+/* --------- Tabla de registros --------- */
+.tabla-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 16px;
+  overflow-x: auto;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d9d9d9;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+}
+
+#tablaRegistros {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+#tablaRegistros thead {
+  background-color: #003a70;
+  color: #ffffff;
+}
+
+#tablaRegistros th,
+#tablaRegistros td {
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#tablaRegistros tbody tr:nth-child(even) {
+  background-color: #f7f9fc;
+}
+
+/* --------- Responsive --------- */
+@media (max-width: 600px) {
+  h2 {
+    font-size: 1.2rem;
+    padding-left: 72px;
+  }
+
+  #ausentismoForm {
+    padding: 20px 16px 16px 16px;
+  }
+
+  #ausentismoForm button {
+    font-size: 0.95rem;
+  }
+
+  #tablaRegistros th,
+  #tablaRegistros td {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+}
