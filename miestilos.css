@@ -29,38 +29,48 @@ body {
   padding: 24px 16px;
 }
 
-/* --------- Título con logo --------- */
-h2 {
-  position: relative;
-  color: var(--ca-azul);
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: left;
-  padding: 16px 16px 16px 88px;
-  margin-bottom: 24px;
-  background: #ffffff;
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+/* Header con logo */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   width: 100%;
   max-width: 520px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px 12px 0 0;
   border-bottom: 4px solid var(--ca-amarillo);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Si querés usar el logo, descomentá todo este bloque
-h2::before {
-  content: "";
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 56px;
-  height: 56px;
-  background-image: url("logo-correo-argentino.png"); 
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+.header h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.4rem;
+  color: var(--ca-azul);
+  box-shadow: none;
+  border-bottom: none;
 }
-*/
+
+/* Logo */
+.logo {
+  width: 56px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .logo {
+    width: 44px;
+  }
+
+  .header h2 {
+    font-size: 1.1rem;
+  }
+}
+
+
 
 /* --------- Tarjeta del formulario --------- */
 #ausentismoForm {
